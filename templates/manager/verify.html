@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>University of Mysore :: Network Services</title>
+<link rel="stylesheet" href="/static/css/blueprint/screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="/static/css/blueprint/print.css" type="text/css" media="print">    
+<!--[if IE]><link rel="stylesheet" href="/static/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen, projection">
+</head>
+<body>
+
+<div align="center">
+<div id="container">
+  <div class="header">
+    <h2>Migration Assistant</h2>
+  </div>
+<h3>Get your new login information.</h3>
+
+<p>
+
+  {% if login %}
+  {% if up %}
+  <div class="newinfo">
+    <table class="formtable">
+    <tr>
+      <td colspan="2" width="100%" align="center">
+        The URL for accessing your emails is<br>
+        <b><a href="http://mail.{{ up.dom }}" >http://mail.{{ up.dom }}</a></b>
+      </td>
+    </tr>
+    <tr>
+      <td width="40%" align="center">
+        Email Address
+      </td>
+      <td width="60%" align="left">
+        <b>{{ up.user }}</b>
+      </td>
+    </tr>
+    <tr>
+      <td width="40%" align="center">
+        Password
+      </td>
+      <td width="60%" align="left">      
+        <b>{{ up.passw }}</b>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" width="100%" align="center">
+        Your old emails are available at <br>
+        <b><a href="http://webmail.{{ up.dom }}" >http://webmail.{{ up.dom }}</a></b>
+      </td>
+    </tr>
+  </table>
+  </div>
+  {% else %}
+  <div class="newinfo">
+    <p>Sorry! Could not find your information. Please contact netsupport@organization</p>
+  </div>
+  {% endif %}
+  {% else %}
+  <p>Please provide your current email address (in full) and your current password<br></p>
+  <form action="/manager/verify/" method="POST">
+  <table class="formtable">
+    <tr>
+      <td width="40%" align="center">
+        Email Address
+      </td>
+      <td width="60%" align="left">
+        <input type="TEXT" name="user" size="40">
+      </td>
+    </tr>
+    <tr>
+      <td width="40%" align="center">
+        Password
+      </td>
+      <td width="60%" align="left">      
+        <input type="PASSWORD" name="passw" size="30">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" width="100%" align="center">      
+        <input type="SUBMIT" name="submt" value="  SUBMIT  ">
+      </td>
+    </tr>    
+  </table>
+  {% endif %}
+  </form>
+</p>
+
+  <p><a href="/manager/" >Return to the migration notes.</a></p>
+</div>
+</div>
+<hr>
+<!-- hhmts start -->Last modified: Wed Dec 10 12:37:19 IST 2008 <!-- hhmts end -->
+<br>
+<b>supported by <a href="http://www.informedia.co.in/" >informedia</a></b>
+</body>
+</html>
